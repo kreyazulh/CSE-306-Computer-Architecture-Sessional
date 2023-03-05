@@ -50,7 +50,7 @@ The Team :
 1. Tareq Ahmed
 2. Mehreen Maliha
 3. [Kazi Reyazul Hasan](https://github.com/kreyazulh)
-4. Wasif Jalal
+4. [Wasif Jalal](https://github.com/WJGalib)
 5. [Mubasshira Musarrat](https://github.com/MubasshiraMusarrat)
 
 
