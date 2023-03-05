@@ -11,7 +11,7 @@ This repository contains all the assignment resources of group 5/B1 for CSE-306 
 
 # Assignment 1 - 4 Bit ALU Design
 
-In this assignment, we were asked to build a 4-Bit ALU with given opcodes. Go through the [specifications](https://github.com/kreyazulh/CSE-306-Computer-Architecture-Sessional/blob/main/Assignment%201-%204-Bit%20ALU/CSE%20306%20Assignment%201.pdf) and the [report](https://github.com/kreyazulh/CSE-306-Computer-Architecture-Sessional/blob/main/Assignment%201-%204-Bit%20ALU/Report/B1_Group5_Report.pdf) to get a better idea..
+In this assignment, we were asked to build a 4-Bit ALU with given opcodes. Go through the [specifications](https://github.com/kreyazulh/CSE-306-Computer-Architecture-Sessional/blob/main/Assignment%201-%204-Bit%20ALU/CSE%20306%20Assignment%201.pdf) and the [report](https://github.com/kreyazulh/CSE-306-Computer-Architecture-Sessional/blob/main/Assignment%201-%204-Bit%20ALU/Report/B1_Group5_Report.pdf) to get a better idea.
 
 ## Run Simulation
 
