@@ -1,0 +1,223 @@
+
+Register_new.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000012a  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  0000019e  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000008  00800060  00800060  0000019e  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  0000019e  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000001d0  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000020  00000000  00000000  0000020c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   000006df  00000000  00000000  0000022c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000005cb  00000000  00000000  0000090b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000002c3  00000000  00000000  00000ed6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000024  00000000  00000000  0000119c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    0000037f  00000000  00000000  000011c0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000146  00000000  00000000  0000153f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000028  00000000  00000000  00001685  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+   8:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+   c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  10:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  14:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  18:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  1c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  20:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  24:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  28:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  2c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  30:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  34:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  38:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  3c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  40:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  44:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  48:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  4c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  50:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_clear_bss>:
+  60:	20 e0       	ldi	r18, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	01 c0       	rjmp	.+2      	; 0x6a <.do_clear_bss_start>
+
+00000068 <.do_clear_bss_loop>:
+  68:	1d 92       	st	X+, r1
+
+0000006a <.do_clear_bss_start>:
+  6a:	a8 36       	cpi	r26, 0x68	; 104
+  6c:	b2 07       	cpc	r27, r18
+  6e:	e1 f7       	brne	.-8      	; 0x68 <.do_clear_bss_loop>
+  70:	0e 94 3e 00 	call	0x7c	; 0x7c <main>
+  74:	0c 94 93 00 	jmp	0x126	; 0x126 <_exit>
+
+00000078 <__bad_interrupt>:
+  78:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000007c <main>:
+uint8_t REGISTER[8] = {0}; //all registers 0
+
+
+int main(void)
+{
+	MCUCSR = (1<<JTD);  MCUCSR = (1<<JTD);
+  7c:	80 e8       	ldi	r24, 0x80	; 128
+  7e:	84 bf       	out	0x34, r24	; 52
+  80:	84 bf       	out	0x34, r24	; 52
+
+	DDRA = 0b00000000;	// A[3:0] - SrcReg1, A[7:4] - SrcReg2
+  82:	1a ba       	out	0x1a, r1	; 26
+	DDRB = 0b00000000;	// B[3:0] - DstReg, B[7:4] - Write Data
+  84:	17 ba       	out	0x17, r1	; 23
+
+	DDRC = 0b11111111;	// C[3:0] - $1, C[7:4] - $2
+  86:	8f ef       	ldi	r24, 0xFF	; 255
+  88:	84 bb       	out	0x14, r24	; 20
+	DDRD = 0b11110000;	// D[0] - WriteReg, D[1] - RESET
+  8a:	80 ef       	ldi	r24, 0xF0	; 240
+  8c:	81 bb       	out	0x11, r24	; 17
+	//PORTA = 0xff;
+	//PORTB = 0xff;
+	uint8_t src, dst_data, last_control = 0, current_control;
+  8e:	30 e0       	ldi	r19, 0x00	; 0
+	//dstreg, writedata
+
+	while (1)
+	{
+		src = PINA; //src1,2
+  90:	e9 b3       	in	r30, 0x19	; 25
+		dst_data = PINB;  //dstreg, writedata
+  92:	46 b3       	in	r20, 0x16	; 22
+		current_control=PIND;
+  94:	20 b3       	in	r18, 0x10	; 16
+
+		PORTC = (REGISTER[(src>>4)&0b0111]<<4) | (REGISTER[src&0b0111]);	//read
+  96:	ae 2f       	mov	r26, r30
+  98:	a2 95       	swap	r26
+  9a:	af 70       	andi	r26, 0x0F	; 15
+  9c:	a7 70       	andi	r26, 0x07	; 7
+  9e:	b0 e0       	ldi	r27, 0x00	; 0
+  a0:	a0 5a       	subi	r26, 0xA0	; 160
+  a2:	bf 4f       	sbci	r27, 0xFF	; 255
+  a4:	8c 91       	ld	r24, X
+  a6:	50 e1       	ldi	r21, 0x10	; 16
+  a8:	85 9f       	mul	r24, r21
+  aa:	c0 01       	movw	r24, r0
+  ac:	11 24       	eor	r1, r1
+  ae:	e7 70       	andi	r30, 0x07	; 7
+  b0:	f0 e0       	ldi	r31, 0x00	; 0
+  b2:	e0 5a       	subi	r30, 0xA0	; 160
+  b4:	ff 4f       	sbci	r31, 0xFF	; 255
+  b6:	90 81       	ld	r25, Z
+  b8:	89 2b       	or	r24, r25
+  ba:	85 bb       	out	0x15, r24	; 21
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  bc:	87 ea       	ldi	r24, 0xA7	; 167
+  be:	91 e6       	ldi	r25, 0x61	; 97
+  c0:	01 97       	sbiw	r24, 0x01	; 1
+  c2:	f1 f7       	brne	.-4      	; 0xc0 <main+0x44>
+  c4:	00 c0       	rjmp	.+0      	; 0xc6 <main+0x4a>
+  c6:	00 00       	nop
+		_delay_ms(100);
+		if (current_control&RESET_) {
+  c8:	21 fd       	sbrc	r18, 1
+  ca:	08 c0       	rjmp	.+16     	; 0xdc <main+0x60>
+  cc:	11 c0       	rjmp	.+34     	; 0xf0 <main+0x74>
+			for (uint8_t i=0; i<8; i++) REGISTER[i] = 0;
+  ce:	e8 2f       	mov	r30, r24
+  d0:	f0 e0       	ldi	r31, 0x00	; 0
+  d2:	e0 5a       	subi	r30, 0xA0	; 160
+  d4:	ff 4f       	sbci	r31, 0xFF	; 255
+  d6:	10 82       	st	Z, r1
+  d8:	8f 5f       	subi	r24, 0xFF	; 255
+  da:	01 c0       	rjmp	.+2      	; 0xde <main+0x62>
+  dc:	80 e0       	ldi	r24, 0x00	; 0
+  de:	88 30       	cpi	r24, 0x08	; 8
+  e0:	b0 f3       	brcs	.-20     	; 0xce <main+0x52>
+  e2:	87 ea       	ldi	r24, 0xA7	; 167
+  e4:	91 e6       	ldi	r25, 0x61	; 97
+  e6:	01 97       	sbiw	r24, 0x01	; 1
+  e8:	f1 f7       	brne	.-4      	; 0xe6 <main+0x6a>
+  ea:	00 c0       	rjmp	.+0      	; 0xec <main+0x70>
+  ec:	00 00       	nop
+			_delay_ms(100);
+			continue;
+  ee:	d0 cf       	rjmp	.-96     	; 0x90 <main+0x14>
+		}
+		
+		if ((current_control^last_control)&CLK_) {							// EDGE
+  f0:	83 2f       	mov	r24, r19
+  f2:	82 27       	eor	r24, r18
+  f4:	82 ff       	sbrs	r24, 2
+  f6:	0f c0       	rjmp	.+30     	; 0x116 <main+0x9a>
+			if ((last_control&CLK_) && (last_control&WRITE_REG_)) {	// POSITIVE EDGE with WRITE INSTRUCTION
+  f8:	32 ff       	sbrs	r19, 2
+  fa:	0d c0       	rjmp	.+26     	; 0x116 <main+0x9a>
+  fc:	30 ff       	sbrs	r19, 0
+  fe:	0b c0       	rjmp	.+22     	; 0x116 <main+0x9a>
+				
+				REGISTER[dst_data&0b0111] = (dst_data>>4);							//write
+ 100:	e4 2f       	mov	r30, r20
+ 102:	e7 70       	andi	r30, 0x07	; 7
+ 104:	f0 e0       	ldi	r31, 0x00	; 0
+ 106:	e0 5a       	subi	r30, 0xA0	; 160
+ 108:	ff 4f       	sbci	r31, 0xFF	; 255
+ 10a:	84 2f       	mov	r24, r20
+ 10c:	82 95       	swap	r24
+ 10e:	8f 70       	andi	r24, 0x0F	; 15
+ 110:	80 83       	st	Z, r24
+				PORTD = dst_data & 0b11110000;
+ 112:	40 7f       	andi	r20, 0xF0	; 240
+ 114:	42 bb       	out	0x12, r20	; 18
+ 116:	87 ea       	ldi	r24, 0xA7	; 167
+ 118:	91 e6       	ldi	r25, 0x61	; 97
+ 11a:	01 97       	sbiw	r24, 0x01	; 1
+ 11c:	f1 f7       	brne	.-4      	; 0x11a <main+0x9e>
+ 11e:	00 c0       	rjmp	.+0      	; 0x120 <main+0xa4>
+ 120:	00 00       	nop
+				//PORTC = (REGISTER[(src>>4)&0b0111]<<4) | (REGISTER[src&0b0111]);	//read
+			}
+		}
+		_delay_ms(100);
+		last_control = current_control;
+ 122:	32 2f       	mov	r19, r18
+ 124:	b5 cf       	rjmp	.-150    	; 0x90 <main+0x14>
+
+00000126 <_exit>:
+ 126:	f8 94       	cli
+
+00000128 <__stop_program>:
+ 128:	ff cf       	rjmp	.-2      	; 0x128 <__stop_program>
