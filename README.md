@@ -2,48 +2,47 @@
 
 This repository contains all the assignment resources of group 5/B1 for CSE-306 Computer Architecture Sessional course (July 2022).
 
-##Prerequisites
+## Prerequisites
 
 1. Install [Logisim-ITA](https://github.com/Logisim-Ita/Logisim) for better simulation results.
 2. Having Proteus can be an added bonus. You can download the crack version from internet.
 
-# Assignment 1 - 4 bit ALU Design
+# Assignment 1 - 4 Bit ALU Design
 
-In this assignment, we were asked to build a 4-Bit ALU with given opcodes. Go through the specifications and report to get a better idea.
+In this assignment, we were asked to build a 4-Bit ALU with given opcodes. Go through the specifications and the report to get a better idea.
 
-##Run Simulation
+## Run Simulation
 
 Make sure to include the exact 7400.circ file given here.
 
-## Installation
+# Assignment 2 - 32 Bit FLoating Point Adder
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+In this assignment, we were asked to simulate a Floating Point Adder on software. Go through the specifications and the report to get a better idea.
+
+## Run Simulation
+
+Just open the .circ file in your Logisim-ITA software.
+
+# Assignment 3 - 4 Bit MIPS Design
+
+In this assignment, we were asked to build a 4-Bit MIPS with different control sequence for each team. Go through the specifications and the report to get a better idea.
+
+## Run Simulation
+
+Run the assembler to generate machine.txt. For linux platform, simply execute the shell script file. For windows, open the script file with a text editor and execute the commands manually.
 
 ```bash
-pip install foobar
+.\run.sh
 ```
+Include the machine.txt file in instructions rom, control_rom.txt in control rom of the logisim circuit. 
 
-## Usage
+## Hardware Design
 
-```python
-import foobar
-
-# returns 'words'
-foobar.pluralize('word')
-
-# returns 'geese'
-foobar.pluralize('goose')
-
-# returns 'phenomenon'
-foobar.singularize('phenomena')
-```
+We have used a d-flip-flop and a switch for CLK. Make sure to avoid [race condition](https://www.techtarget.com/searchstorage/definition/race-condition#:~:text=A%20race%20condition%20is%20an,sequence%20to%20be%20done%20correctly.) when designing the data paths.
 
 ## Contributions
 
-Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
 
-Please make sure to update tests as appropriate.
 
 ## License
 
